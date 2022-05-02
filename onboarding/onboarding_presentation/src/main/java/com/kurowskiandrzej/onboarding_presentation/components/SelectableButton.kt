@@ -25,7 +25,7 @@ fun SelectableButton(
     color: Color,
     selectedTextColor: Color,
     onClick: () -> Unit,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     textStyle: TextStyle = MaterialTheme.typography.button
 ) {
     Box(
