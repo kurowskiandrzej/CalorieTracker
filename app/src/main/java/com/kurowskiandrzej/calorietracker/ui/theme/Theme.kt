@@ -6,9 +6,8 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.ui.graphics.Color
-import com.kurowskiandrzej.core_ui.Dimensions
-import com.kurowskiandrzej.core_ui.LocalSpacing
+import androidx.compose.ui.graphics.Color.Companion.White
+import com.kurowskiandrzej.core_ui.*
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,
@@ -18,20 +17,20 @@ private val DarkColorPalette = darkColors(
     onBackground = TextWhite,
     surface = LightGray,
     onSurface = TextWhite,
-    onPrimary = Color.White,
-    onSecondary = Color.White,
+    onPrimary = White,
+    onSecondary = White,
 )
 
 private val LightColorPalette = lightColors(
     primary = BrightGreen,
     primaryVariant = DarkGreen,
     secondary = Orange,
-    background = Color.White,
+    background = White,
     onBackground = DarkGray,
-    surface = Color.White,
+    surface = White,
     onSurface = DarkGray,
-    onPrimary = Color.White,
-    onSecondary = Color.White,
+    onPrimary = White,
+    onSecondary = White,
 )
 
 @Composable
