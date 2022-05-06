@@ -30,13 +30,16 @@ fun NutrientHeader(
     val animatedCalorieCount = animateIntAsState(
         targetValue = state.totalCalories
     )
+    val animatedCaloriesGoal = animateIntAsState(
+        targetValue = state.caloriesGoal
+    )
     Column(
         modifier = modifier
             .fillMaxWidth()
             .clip(
                 RoundedCornerShape(
-                    bottomStart = 50.dp,
-                    bottomEnd = 50.dp
+                    bottomStart = 20.dp,
+                    bottomEnd = 20.dp
                 )
             )
             .background(MaterialTheme.colors.primary)
@@ -57,20 +60,13 @@ fun NutrientHeader(
                 unitColor = MaterialTheme.colors.onPrimary,
                 modifier = Modifier.align(Alignment.Bottom)
             )
-            Column {
-                Text(
-                    text = stringResource(id = R.string.your_goal),
-                    style = MaterialTheme.typography.body2,
-                    color = MaterialTheme.colors.onPrimary
-                )
-                UnitDisplay(
-                    amount = animatedCalorieCount.value,
-                    unit = stringResource(id = R.string.kcal),
-                    amountColor = MaterialTheme.colors.onPrimary,
-                    amountTextSize = 40.sp,
-                    unitColor = MaterialTheme.colors.onPrimary,
-                )
-            }
+            UnitDisplay(
+                amount = animatedCaloriesGoal.value,
+                unit = stringResource(id = R.string.kcal),
+                amountColor = MaterialTheme.colors.onPrimary,
+                amountTextSize = 40.sp,
+                unitColor = MaterialTheme.colors.onPrimary,
+            )
         }
         Spacer(modifier = Modifier.height(spacing.spaceSmall))
         NutrientsBar(
