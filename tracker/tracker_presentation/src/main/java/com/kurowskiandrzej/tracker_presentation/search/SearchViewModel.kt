@@ -28,7 +28,7 @@ class SearchViewModel @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onEventFunction(event: SearchEvent) {
+    fun onEvent(event: SearchEvent) {
         when (event) {
             is SearchEvent.OnQueryChange -> {
                 state = state.copy(query = event.query)
