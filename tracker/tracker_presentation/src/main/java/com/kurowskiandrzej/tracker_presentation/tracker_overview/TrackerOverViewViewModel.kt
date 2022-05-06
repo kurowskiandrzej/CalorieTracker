@@ -11,7 +11,6 @@ import com.kurowskiandrzej.core.util.UiEvent
 import com.kurowskiandrzej.tracker_domain.use_case.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -98,7 +97,7 @@ class TrackerOverViewViewModel @Inject constructor(
                     proteinGoal = nutrientResult.proteinGoal,
                     fatGoal = nutrientResult.fatGoal,
                     caloriesGoal = nutrientResult.caloriesGoal,
-                    trackedFood = foods,
+                    trackedFoods = foods,
                     meals = state.meals.map {
                         val nutrientsForMeal = nutrientResult.mealNutrients[it.mealType]
                             ?: return@map it.copy(
