@@ -11,21 +11,21 @@ sealed class MealType(val name: String) {
 
     companion object {
         fun fromString(name: String): MealType {
-            return when (name) {
-                "breakfast" -> Breakfast
-                "lunch" -> Lunch
-                "dinner" -> Dinner
-                "snack" -> Snack
+            return when (name.lowercase()) {
+                "breakfast", "śniadanie" -> Breakfast
+                "lunch", "obiad" -> Lunch
+                "dinner", "kolacja" -> Dinner
+                "snack", "przekąski" -> Snack
                 else -> throw InvalidKeyException("MealType $name is not implemented")
             }
         }
 
         fun getAddMealStringResource(mealName: String): Int {
-            return when (mealName) {
-                "breakfast" -> R.string.add_breakfast
-                "lunch" -> R.string.add_lunch
-                "dinner" -> R.string.add_dinner
-                "snack" -> R.string.add_snacks
+            return when (mealName.lowercase()) {
+                "breakfast", "śniadanie" -> R.string.add_breakfast
+                "lunch", "obiad" -> R.string.add_lunch
+                "dinner", "kolacja" -> R.string.add_dinner
+                "snack", "przekąski" -> R.string.add_snacks
                 else -> throw InvalidKeyException("There is no such meal as: $mealName")
             }
         }
