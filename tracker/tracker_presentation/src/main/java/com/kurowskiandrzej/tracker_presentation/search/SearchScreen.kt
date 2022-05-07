@@ -63,7 +63,9 @@ fun SearchScreen(
             .padding(spacing.spaceMedium)
     ) {
         Text(
-            text = stringResource(id = R.string.add_meal, mealName),
+            text = stringResource(
+                id = MealType.getAddMealStringResource(mealName)
+            ),
             style = MaterialTheme.typography.h2
         )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))

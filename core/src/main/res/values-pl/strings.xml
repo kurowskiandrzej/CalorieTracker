@@ -58,4 +58,8 @@
     <string name="whats_your_activity_level">Jaki jest Twój poziom aktywności</string> <string name="error_not_100_percent">The values must add up to 100%</string>
     <string name="your_goal">Twój cel:</string>
     <string name="delete">Usuń</string>
+    <string name="add_breakfast">Dodaj śniadanie</string>
+    <string name="add_lunch">Dodaj lunch</string>
+    <string name="add_dinner">Dodaj kolacje</string>
+    <string name="add_snacks">Dodaj przekąski</string>
 </resources>

@@ -29,12 +29,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.kurowskiandrzej.core.R
 import com.kurowskiandrzej.core_ui.LocalSpacing
 import com.kurowskiandrzej.tracker_presentation.components.NutrientInfo
 import com.kurowskiandrzej.tracker_presentation.search.TrackableFoodUiState
 
+@ExperimentalCoilApi
 @Composable
 fun TrackableFoodItem(
     trackableFoodUiState: TrackableFoodUiState,
@@ -45,7 +47,6 @@ fun TrackableFoodItem(
 ) {
     val food = trackableFoodUiState.food
     val spacing = LocalSpacing.current
-
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(5.dp))
@@ -56,10 +57,12 @@ fun TrackableFoodItem(
             )
             .background(MaterialTheme.colors.surface)
             .clickable { onClick() }
-            .padding(end = spacing.spaceMedium)
+            .padding(end = spacing.spaceMedium),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(spacing.spaceExtraSmall),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -76,10 +79,10 @@ fun TrackableFoodItem(
                         }
                     ),
                     contentDescription = food.name,
-                    contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.FillHeight,
                     modifier = Modifier
-                        .size(100.dp)
-                        .clip(RoundedCornerShape(topStart = 5.dp))
+                        .size(50.dp)
+                        .aspectRatio(1.4f)
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 Column(
@@ -89,43 +92,48 @@ fun TrackableFoodItem(
                         text = food.name,
                         style = MaterialTheme.typography.body1,
                         maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
+                        overflow = TextOverflow.Ellipsis
                     )
                     Spacer(modifier = Modifier.height(spacing.spaceSmall))
                     Text(
-                        text = stringResource(id = R.string.kcal_per_100g, food.caloriesPer100g),
-                        style = MaterialTheme.typography.body1
+                        text = stringResource(
+                            id = R.string.kcal_per_100g,
+                            food.caloriesPer100g
+                        ),
                     )
                 }
             }
-            Row {
-                NutrientInfo(
-                    name = stringResource(id = R.string.carbs),
-                    amount = food.carbsPer100g,
-                    unit = stringResource(id = R.string.grams),
-                    amountTextSize = 16.sp,
-                    unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.body2
-                )
-                Spacer(modifier = Modifier.width(spacing.spaceSmall))
-                NutrientInfo(
-                    name = stringResource(id = R.string.protein),
-                    amount = food.proteinPer100g,
-                    unit = stringResource(id = R.string.grams),
-                    amountTextSize = 16.sp,
-                    unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.body2
-                )
-                Spacer(modifier = Modifier.width(spacing.spaceSmall))
-                NutrientInfo(
-                    name = stringResource(id = R.string.fat),
-                    amount = food.fatPer100g,
-                    unit = stringResource(id = R.string.grams),
-                    amountTextSize = 16.sp,
-                    unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.body2
-                )
-            }
+        }
+        Spacer(modifier = Modifier.height(spacing.spaceSmall))
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(spacing.spaceExtraSmall)
+        ) {
+            NutrientInfo(
+                name = stringResource(id = R.string.carbs),
+                amount = food.carbsPer100g,
+                unit = stringResource(id = R.string.grams),
+                amountTextSize = 16.sp,
+                unitTextSize = 12.sp,
+            )
+            Spacer(modifier = Modifier.width(spacing.spaceSmall))
+            NutrientInfo(
+                name = stringResource(id = R.string.protein),
+                amount = food.proteinPer100g,
+                unit = stringResource(id = R.string.grams),
+                amountTextSize = 16.sp,
+                unitTextSize = 12.sp,
+            )
+            Spacer(modifier = Modifier.width(spacing.spaceSmall))
+            NutrientInfo(
+                name = stringResource(id = R.string.fat),
+                amount = food.fatPer100g,
+                unit = stringResource(id = R.string.grams),
+                amountTextSize = 16.sp,
+                unitTextSize = 12.sp,
+            )
         }
         AnimatedVisibility(visible = trackableFoodUiState.isExpanded) {
             Row(
@@ -140,7 +148,7 @@ fun TrackableFoodItem(
                         value = trackableFoodUiState.amount,
                         onValueChange = onAmountChange,
                         keyboardOptions = KeyboardOptions(
-                            imeAction = if (trackableFoodUiState.amount.isNotBlank()) {
+                            imeAction = if(trackableFoodUiState.amount.isNotBlank()) {
                                 ImeAction.Done
                             } else ImeAction.Default,
                             keyboardType = KeyboardType.Number

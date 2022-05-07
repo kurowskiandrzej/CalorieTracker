@@ -25,12 +25,10 @@ fun NutrientInfo(
     unit: String,
     modifier: Modifier = Modifier,
     amountTextSize: TextUnit = 20.sp,
-    amountColor: Color = MaterialTheme.colors.onBackground,
     unitTextSize: TextUnit = 14.sp,
     unitColor: Color = MaterialTheme.colors.onBackground,
     nameTextStyle: TextStyle = MaterialTheme.typography.body1
 ) {
-    val spacing = LocalSpacing.current
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -46,7 +44,7 @@ fun NutrientInfo(
             text = name,
             color = MaterialTheme.colors.onBackground,
             style = nameTextStyle,
-            fontWeight = FontWeight.Light
+            fontWeight = FontWeight.Normal
         )
     }
 }

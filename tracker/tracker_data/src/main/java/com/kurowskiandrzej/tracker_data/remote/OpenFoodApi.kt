@@ -3,6 +3,7 @@ package com.kurowskiandrzej.tracker_data.remote
 import com.kurowskiandrzej.tracker_data.remote.dto.SearchDto
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.*
 
 interface OpenFoodApi {
 
@@ -14,6 +15,10 @@ interface OpenFoodApi {
     ): SearchDto
 
     companion object {
-        const val BASE_URL = "https://us.openfoodfacts.org/"
+        fun getLocalizedUrl(locale:String): String {
+            var countryUrl = "us"
+            if (locale.lowercase() == "pl") countryUrl = "pl"
+            return "https://$countryUrl.openfoodfacts.org/"
+        }
     }
 }

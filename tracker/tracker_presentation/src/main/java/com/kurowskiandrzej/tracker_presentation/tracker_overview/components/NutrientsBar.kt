@@ -9,7 +9,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import com.kurowskiandrzej.core_ui.CarbColor
+import com.kurowskiandrzej.core_ui.EmptySpaceGray
 import com.kurowskiandrzej.core_ui.FatColor
 import com.kurowskiandrzej.core_ui.ProteinColor
 
@@ -23,7 +25,6 @@ fun NutrientsBar(
     modifier: Modifier = Modifier
 ) {
     val nutrientsBarCornerRadius = 30f
-    val background = MaterialTheme.colors.background
     val caloriesExceedColor = MaterialTheme.colors.error
     val carbWidthRatio = remember {
         Animatable(0f)
@@ -55,7 +56,7 @@ fun NutrientsBar(
             val proteinWidth = proteinWidthRatio.value * size.width
             val fatWidth = fatWidthRatio.value * size.width
             drawRoundRect(
-                color = background,
+                color = EmptySpaceGray,
                 size = size,
                 cornerRadius = CornerRadius(nutrientsBarCornerRadius)
             )

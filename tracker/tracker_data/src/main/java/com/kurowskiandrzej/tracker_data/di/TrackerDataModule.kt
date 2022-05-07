@@ -1,6 +1,7 @@
 package com.kurowskiandrzej.tracker_data.di
 
 import android.app.Application
+import android.util.Log
 import androidx.room.Room
 import com.kurowskiandrzej.tracker_data.local.TrackerDatabase
 import com.kurowskiandrzej.tracker_data.remote.OpenFoodApi
@@ -35,9 +36,10 @@ object TrackerDataModule {
 
     @Provides
     @Singleton
-    fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi {
+    fun provideOpenFoodApi(client: OkHttpClient, app: Application): OpenFoodApi {
+        val currentLocale = app.resources.configuration.locale
         return Retrofit.Builder()
-            .baseUrl(OpenFoodApi.BASE_URL)
+            .baseUrl(OpenFoodApi.getLocalizedUrl(currentLocale.country))
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()

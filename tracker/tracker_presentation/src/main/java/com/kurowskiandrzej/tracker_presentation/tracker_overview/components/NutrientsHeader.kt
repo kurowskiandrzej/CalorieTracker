@@ -44,8 +44,8 @@ fun NutrientHeader(
             )
             .background(MaterialTheme.colors.primary)
             .padding(
-                horizontal = spacing.spaceLarge,
-                vertical = spacing.spaceExtraLarge
+                horizontal = spacing.spaceMedium,
+                vertical = spacing.spaceLarge
             )
     ) {
         Row(
@@ -56,7 +56,7 @@ fun NutrientHeader(
                 amount = animatedCalorieCount.value,
                 unit = stringResource(id = R.string.kcal),
                 amountColor = MaterialTheme.colors.onPrimary,
-                amountTextSize = 40.sp,
+                amountTextSize = 30.sp,
                 unitColor = MaterialTheme.colors.onPrimary,
                 modifier = Modifier.align(Alignment.Bottom)
             )
@@ -64,7 +64,7 @@ fun NutrientHeader(
                 amount = animatedCaloriesGoal.value,
                 unit = stringResource(id = R.string.kcal),
                 amountColor = MaterialTheme.colors.onPrimary,
-                amountTextSize = 40.sp,
+                amountTextSize = 30.sp,
                 unitColor = MaterialTheme.colors.onPrimary,
             )
         }
@@ -89,21 +89,21 @@ fun NutrientHeader(
                 goal = state.carbsGoal,
                 name = stringResource(id = R.string.carbs),
                 color = CarbColor,
-                modifier = Modifier.size(90.dp)
+                modifier = Modifier.size(95.dp)
             )
             NutrientBarInfo(
                 value = state.totalProtein,
                 goal = state.proteinGoal,
                 name = stringResource(id = R.string.protein),
                 color = ProteinColor,
-                modifier = Modifier.size(90.dp)
+                modifier = Modifier.size(95.dp)
             )
             NutrientBarInfo(
                 value = state.totalFat,
                 goal = state.fatGoal,
                 name = stringResource(id = R.string.fat),
                 color = FatColor,
-                modifier = Modifier.size(90.dp)
+                modifier = Modifier.size(95.dp)
             )
         }
     }

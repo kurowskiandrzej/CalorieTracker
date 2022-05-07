@@ -3,10 +3,7 @@ package com.kurowskiandrzej.tracker_presentation.tracker_overview.components
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.kurowskiandrzej.core.R
+import com.kurowskiandrzej.core_ui.EmptySpaceGray
 import com.kurowskiandrzej.tracker_presentation.components.UnitDisplay
 
 @Composable
@@ -31,9 +29,8 @@ fun NutrientBarInfo(
     name: String,
     color: Color,
     modifier: Modifier = Modifier,
-    strokeWidth: Dp = 8.dp
+    strokeWidth: Dp = 6.dp
 ) {
-    val backgroundColor = MaterialTheme.colors.background
     val goalExceededColor = MaterialTheme.colors.error
     val angleRatio = remember {
         Animatable(0f)
@@ -58,7 +55,7 @@ fun NutrientBarInfo(
                 .aspectRatio(1f)
         ) {
             drawArc(
-                color = if (value <= goal) backgroundColor else goalExceededColor,
+                color = if (value <= goal) EmptySpaceGray else goalExceededColor,
                 startAngle = 0f,
                 sweepAngle = 360f,
                 useCenter = false,
@@ -107,7 +104,7 @@ fun NutrientBarInfo(
                 } else {
                     goalExceededColor
                 },
-                style = MaterialTheme.typography.body1,
+                style = MaterialTheme.typography.h5,
                 fontWeight = FontWeight.Light
             )
         }

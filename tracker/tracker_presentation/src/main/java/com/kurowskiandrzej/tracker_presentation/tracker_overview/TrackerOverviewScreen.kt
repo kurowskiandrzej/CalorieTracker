@@ -3,17 +3,19 @@ package com.kurowskiandrzej.tracker_presentation.tracker_overview
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Divider
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.kurowskiandrzej.core.util.UiEvent
 import com.kurowskiandrzej.core_ui.LocalSpacing
-import com.kurowskiandrzej.core.R
+import com.kurowskiandrzej.tracker_domain.model.MealType
 import com.kurowskiandrzej.tracker_presentation.tracker_overview.components.*
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun TrackerOverviewScreen(
@@ -79,7 +81,7 @@ fun TrackerOverviewScreen(
                             }
                         }
                         AddButton(
-                            text = stringResource(id = R.string.add_meal, meal.name.asString(context)),
+                            text = stringResource(id = MealType.getAddMealStringResource(meal.mealType.name)),
                             onClick = {
                                 viewModel.onEvent(
                                     TrackerOverViewEvent.OnAddFoodClick(meal)
@@ -91,6 +93,17 @@ fun TrackerOverviewScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             )
+            if (meal.mealType != MealType.Snack && !meal.isExpanded) {
+                Divider(
+                    color = MaterialTheme.colors.onSurface,
+                    thickness = 1.dp,
+                    modifier = Modifier
+                        .padding(
+                            horizontal = 30.dp,
+                            vertical = 10.dp
+                        )
+                )
+            }
         }
     }
 }

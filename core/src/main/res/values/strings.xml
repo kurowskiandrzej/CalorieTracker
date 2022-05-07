@@ -58,4 +58,8 @@
     <string name="error_not_100_percent">The values must add up to 100%</string>
     <string name="your_goal">Your goal:</string>
     <string name="delete">Delete</string>
+    <string name="add_breakfast">Add breakfast</string>
+    <string name="add_lunch">Add lunch</string>
+    <string name="add_dinner">Add dinner</string>
+    <string name="add_snacks">Add snacks</string>
 </resources>

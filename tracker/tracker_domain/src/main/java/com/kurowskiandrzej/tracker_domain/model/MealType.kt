@@ -1,5 +1,6 @@
 package com.kurowskiandrzej.tracker_domain.model
 
+import com.kurowskiandrzej.core.R
 import java.security.InvalidKeyException
 
 sealed class MealType(val name: String) {
@@ -14,8 +15,18 @@ sealed class MealType(val name: String) {
                 "breakfast" -> Breakfast
                 "lunch" -> Lunch
                 "dinner" -> Dinner
-                "Snack" -> Snack
+                "snack" -> Snack
                 else -> throw InvalidKeyException("MealType $name is not implemented")
+            }
+        }
+
+        fun getAddMealStringResource(mealName: String): Int {
+            return when (mealName) {
+                "breakfast" -> R.string.add_breakfast
+                "lunch" -> R.string.add_lunch
+                "dinner" -> R.string.add_dinner
+                "snack" -> R.string.add_snacks
+                else -> throw InvalidKeyException("There is no such meal as: $mealName")
             }
         }
     }

@@ -9,37 +9,37 @@ val Typography = Typography(
     body1 = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 14.sp
     ),
     button = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
+        fontSize = 18.sp,
     ),
     caption = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 10.sp
     ),
     h1 = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 30.sp
+        fontSize = 28.sp
     ),
     h2 = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 26.sp
+        fontSize = 24.sp
     ),
     h3 = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 22.sp
+        fontSize = 20.sp
     ),
     h4 = TextStyle(
         fontFamily = kalam,
         fontWeight = FontWeight.Normal,
-        fontSize = 18.sp
+        fontSize = 16.sp
     ),
     h5 = TextStyle(
         fontFamily = kalam,

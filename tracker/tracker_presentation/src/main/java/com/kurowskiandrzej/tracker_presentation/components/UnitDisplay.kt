@@ -19,7 +19,7 @@ fun UnitDisplay(
     amount: Int,
     unit: String,
     modifier: Modifier = Modifier,
-    amountTextSize: TextUnit = 20.sp,
+    amountTextSize: TextUnit = 18.sp,
     amountColor: Color = MaterialTheme.colors.onBackground,
     unitTextSize: TextUnit = 14.sp,
     unitColor: Color = MaterialTheme.colors.onBackground
