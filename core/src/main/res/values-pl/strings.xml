@@ -42,7 +42,7 @@
     <string name="error_something_went_wrong">Ups, coś poszło nie tak!</string>
     <string name="no_results">Brak rezultatów</string>
     <string name="error_invalid_values">Te wartości są nidozwolone</string>
-    <string name="what_are_your_nutrient_goals">Podaj preferowany podział składników mikroodżywczych</string>
+    <string name="what_are_your_nutrient_goals">Podaj preferowany podział mikroskładników odżywczych</string>
     <string name="percent_proteins">% białek</string>
     <string name="percent_fats">% tłuszczy</string>
     <string name="percent_carbs">% węglowodanów</string>
@@ -55,7 +55,8 @@
     <string name="keep">Utrzymać</string>
     <string name="lose">Stracić</string>
     <string name="lose_keep_or_gain_weight">Co chcesz zrobić ze swoją wagą?</string>
-    <string name="whats_your_activity_level">Jaki jest Twój poziom aktywności</string> <string name="error_not_100_percent">The values must add up to 100%</string>
+    <string name="whats_your_activity_level">Jaki jest Twój poziom aktywności</string>
+    <string name="error_not_100_percent">Suma wartości musi wynosić 100%</string>
     <string name="your_goal">Twój cel:</string>
     <string name="delete">Usuń</string>
     <string name="add_breakfast">Dodaj śniadanie</string>

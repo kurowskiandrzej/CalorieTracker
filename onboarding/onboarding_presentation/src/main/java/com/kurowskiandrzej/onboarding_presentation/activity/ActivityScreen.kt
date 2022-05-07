@@ -49,46 +49,44 @@ fun ActivityScreen(
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            Row {
-                SelectableButton(
-                    text = stringResource(id = R.string.low),
-                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.Low,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onActivityLevelSelect(ActivityLevel.Low)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            SelectableButton(
+                text = stringResource(id = R.string.low),
+                isSelected = viewModel.selectedActivityLevel is ActivityLevel.Low,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onActivityLevelSelect(ActivityLevel.Low)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-                Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
-                    text = stringResource(id = R.string.medium),
-                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.Medium,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onActivityLevelSelect(ActivityLevel.Medium)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            SelectableButton(
+                text = stringResource(id = R.string.medium),
+                isSelected = viewModel.selectedActivityLevel is ActivityLevel.Medium,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onActivityLevelSelect(ActivityLevel.Medium)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-                Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
-                    text = stringResource(id = R.string.high),
-                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.High,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onActivityLevelSelect(ActivityLevel.High)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            SelectableButton(
+                text = stringResource(id = R.string.high),
+                isSelected = viewModel.selectedActivityLevel is ActivityLevel.High,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onActivityLevelSelect(ActivityLevel.High)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-            }
+            )
         }
         ActionButton(
             text = stringResource(id = R.string.next),

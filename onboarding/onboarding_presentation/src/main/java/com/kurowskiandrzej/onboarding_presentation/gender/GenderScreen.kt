@@ -50,33 +50,31 @@ fun GenderScreen(
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            Row {
-                SelectableButton(
-                    text = stringResource(id = R.string.female),
-                    isSelected = viewModel.selectedGender is Gender.Female,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onGenderClick(Gender.Female)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            SelectableButton(
+                text = stringResource(id = R.string.female),
+                isSelected = viewModel.selectedGender is Gender.Female,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onGenderClick(Gender.Female)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-                Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
-                    text = stringResource(id = R.string.male),
-                    isSelected = viewModel.selectedGender is Gender.Male,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onGenderClick(Gender.Male)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            SelectableButton(
+                text = stringResource(id = R.string.male),
+                isSelected = viewModel.selectedGender is Gender.Male,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onGenderClick(Gender.Male)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-            }
+            )
         }
         ActionButton(
             text = stringResource(id = R.string.next),

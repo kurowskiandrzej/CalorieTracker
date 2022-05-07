@@ -49,46 +49,44 @@ fun GoalScreen(
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            Row {
-                SelectableButton(
-                    text = stringResource(id = R.string.lose),
-                    isSelected = viewModel.selectedGoal is GoalType.LoseWeight,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onGoalTypeSelect(GoalType.LoseWeight)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            SelectableButton(
+                text = stringResource(id = R.string.lose),
+                isSelected = viewModel.selectedGoal is GoalType.LoseWeight,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onGoalTypeSelect(GoalType.LoseWeight)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-                Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
-                    text = stringResource(id = R.string.keep),
-                    isSelected = viewModel.selectedGoal is GoalType.MaintainWeight,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onGoalTypeSelect(GoalType.MaintainWeight)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            SelectableButton(
+                text = stringResource(id = R.string.keep),
+                isSelected = viewModel.selectedGoal is GoalType.MaintainWeight,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onGoalTypeSelect(GoalType.MaintainWeight)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-                Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
-                    text = stringResource(id = R.string.gain),
-                    isSelected = viewModel.selectedGoal is GoalType.GainWeight,
-                    color = MaterialTheme.colors.primaryVariant,
-                    selectedTextColor = Color.White,
-                    onClick = {
-                        viewModel.onGoalTypeSelect(GoalType.GainWeight)
-                    },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+            SelectableButton(
+                text = stringResource(id = R.string.gain),
+                isSelected = viewModel.selectedGoal is GoalType.GainWeight,
+                color = MaterialTheme.colors.primaryVariant,
+                selectedTextColor = Color.White,
+                onClick = {
+                    viewModel.onGoalTypeSelect(GoalType.GainWeight)
+                },
+                textStyle = MaterialTheme.typography.button.copy(
+                    fontWeight = FontWeight.Normal
                 )
-            }
+            )
         }
         ActionButton(
             text = stringResource(id = R.string.next),

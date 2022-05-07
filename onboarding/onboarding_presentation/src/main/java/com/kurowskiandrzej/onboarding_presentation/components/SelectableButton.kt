@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -32,6 +33,7 @@ fun SelectableButton(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .clip(RoundedCornerShape(10.dp))
+            .width(170.dp)
             .border(
                 width = 2.dp,
                 color = color,

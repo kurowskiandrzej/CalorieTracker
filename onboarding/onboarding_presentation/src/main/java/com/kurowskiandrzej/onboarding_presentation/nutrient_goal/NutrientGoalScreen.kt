@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.kurowskiandrzej.core.R
 import com.kurowskiandrzej.core.util.UiEvent
@@ -52,7 +53,8 @@ fun NutrientGoalScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.what_are_your_nutrient_goals),
-                style = MaterialTheme.typography.h3
+                style = MaterialTheme.typography.h3,
+                textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
 
