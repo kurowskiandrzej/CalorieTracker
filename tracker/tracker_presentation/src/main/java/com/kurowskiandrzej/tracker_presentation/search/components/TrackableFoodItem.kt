@@ -81,7 +81,7 @@ fun TrackableFoodItem(
                     contentDescription = food.name,
                     contentScale = ContentScale.FillHeight,
                     modifier = Modifier
-                        .size(50.dp)
+                        .size(80.dp)
                         .aspectRatio(1.4f)
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
