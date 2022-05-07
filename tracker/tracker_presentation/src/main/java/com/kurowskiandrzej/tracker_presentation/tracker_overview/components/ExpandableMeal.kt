@@ -13,6 +13,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -53,40 +54,45 @@ fun ExpandableMeal(
                 ) {
                     Text(
                         text = meal.name.asString(context),
-                        style = MaterialTheme.typography.h3
+                        style = MaterialTheme.typography.h3,
+                        modifier = Modifier.alignByBaseline()
                     )
-                    Icon(
-                        imageVector = if (meal.isExpanded) {
-                            Icons.Default.KeyboardArrowUp
-                        } else Icons.Default.KeyboardArrowDown,
-                        contentDescription = if (meal.isExpanded) {
-                            stringResource(id = R.string.collapse)
-                        } else stringResource(id = R.string.extend)
-                    )
+                    Row {
+                        UnitDisplay(
+                            amount = meal.calories,
+                            unit = stringResource(id = R.string.kcal),
+                            amountTextSize = 22.sp,
+                            modifier = Modifier.alignByBaseline()
+                        )
+                        Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
+                        Icon(
+                            imageVector = if (meal.isExpanded) {
+                                Icons.Default.KeyboardArrowUp
+                            } else Icons.Default.KeyboardArrowDown,
+                            contentDescription = if (meal.isExpanded) {
+                                stringResource(id = R.string.collapse)
+                            } else stringResource(id = R.string.extend)
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.height(spacing.spaceSmall))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    UnitDisplay(
-                        amount = meal.calories,
-                        unit = stringResource(id = R.string.kcal),
-                        amountTextSize = 30.sp
-                    )
-                    Row {
+                    Row{
                         NutrientInfo(
                             name = stringResource(id = R.string.carbs),
                             amount = meal.carbs,
                             unit = stringResource(id = R.string.grams)
                         )
-                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
+                        Spacer(modifier = Modifier.width(spacing.spaceLarge))
                         NutrientInfo(
                             name = stringResource(id = R.string.protein),
                             amount = meal.protein,
                             unit = stringResource(id = R.string.grams)
                         )
-                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
+                        Spacer(modifier = Modifier.width(spacing.spaceLarge))
                         NutrientInfo(
                             name = stringResource(id = R.string.fat),
                             amount = meal.fat,
